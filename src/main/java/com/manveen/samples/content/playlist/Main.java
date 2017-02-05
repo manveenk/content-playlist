@@ -11,11 +11,6 @@ import com.manveen.samples.content.playlist.model.ContentsDb;
 import com.manveen.samples.content.playlist.model.Playlist;
 import com.manveen.samples.content.playlist.model.Video;
 
-/**
- * Contents playlist We assume that a playlist has only one Pre-Roll and one
- * Content video.
- *
- */
 public class Main {
     public static void main(String[] args) throws Exception {
         Gson gson = new Gson();
@@ -40,7 +35,7 @@ public class Main {
                         String country = tokens[1].trim().toUpperCase();
                         validInput = item != null && country != null;
                         if (validInput) {
-                            Collection<Playlist> playlists = contents.findMatchingPlaylists(item, country);
+                            Collection<Playlist> playlists = contents.generateMatchingPlaylists(item, country);
                             if (playlists.isEmpty()) {
                                 System.out.println("No legal playlist possible because the"
                                         + " Pre-Roll Video isn't compatible with the aspect ratio"
