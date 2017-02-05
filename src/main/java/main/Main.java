@@ -1,4 +1,4 @@
-package com.manveen.samples.content.playlist;
+package main;
 
 import java.io.FileReader;
 import java.util.Collection;
@@ -14,8 +14,9 @@ import com.manveen.samples.content.playlist.model.Video;
 public class Main {
     public static void main(String[] args) throws Exception {
         Gson gson = new Gson();
+        String file = args.length > 0 ? args[0] : "contents.json";
 
-        ContentsDb contents = gson.fromJson(new FileReader("contents.json"), ContentsDb.class);
+        ContentsDb contents = gson.fromJson(new FileReader(file), ContentsDb.class);
         System.out.println("Content items: " + contents.getContent().size());
         System.out.println("Pre-Roll items: " + contents.getPreroll().size());
 
