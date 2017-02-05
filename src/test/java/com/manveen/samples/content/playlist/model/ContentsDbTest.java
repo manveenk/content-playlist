@@ -14,6 +14,11 @@ import org.junit.Test;
 
 public class ContentsDbTest {
 
+    /**
+     * Test to verify in case of more than one pre-roll match, play lists generated contain all ordered subsets of the matches.
+     * e.g. if Video content C has eligible pre-rolls P1 and P2, then there would be 4 ways to generate the play list.
+     * {{P1}, {P2}, {P1, P2}, {P2, P1}} followed by C.
+     */
     @Test
     public void testAddEnumeratedPlaylists() {
         Collection<Playlist> playlists = new ConcurrentLinkedQueue<>();
@@ -27,6 +32,9 @@ public class ContentsDbTest {
         assertTrue(containsVideos(playlists, "P2", "P1", "C"));
     }
 
+    /**
+     * Test to ensure that pre roll matching takes country code, language and aspect ratio into account.
+     */
     @Test
     public void testFindMatchingPreRollVideos() {
         List<PreRoll> prerolls = Arrays.asList(

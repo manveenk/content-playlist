@@ -11,7 +11,7 @@ final class Utils {
      */
     public static <T> List<List<T>> allSubsets(List<T> original) {
         // Modified From http://stackoverflow.com/questions/1670862/obtaining-a-powerset-of-a-set-in-java
-        // We need all subsets
+        // We need all ordered subsets
         List<List<T>> sets = new ArrayList<List<T>>();
         if (original.isEmpty()) {
             sets.add(new ArrayList<T>());
